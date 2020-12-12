@@ -426,6 +426,9 @@ rubot_control_BINARY_DIR:STATIC=/home/mpuig/rUBotCoop_LabProject/build/rubot_con
 //Value Computed by CMake
 rubot_control_SOURCE_DIR:STATIC=/home/mpuig/rUBotCoop_LabProject/src/rubot_control
 
+//The directory containing a CMake configuration file for sensor_msgs.
+sensor_msgs_DIR:PATH=/opt/ros/melodic/share/sensor_msgs/cmake
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/melodic/share/std_msgs/cmake
 

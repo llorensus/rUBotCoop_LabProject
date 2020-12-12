@@ -23,7 +23,7 @@ class MoveForward():
         self.msg=Twist()    
         self.msg=Twist()
         
-        rospy.init_node("move_forward",anonymous=False)
+        rospy.init_node("rubot_nav",anonymous=False)
         rospy.on_shutdown(self.shutdown)
         
         self.cmd_vel = rospy.Publisher("/cmd_vel",Twist)
