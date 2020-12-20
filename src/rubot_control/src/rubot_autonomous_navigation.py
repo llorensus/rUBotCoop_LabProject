@@ -5,11 +5,12 @@ import sys
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
 
+
 class GoPiGo3:
 
     def __init__(self):
 
-        rospy.init_node("rubot_nav", anonymous=False)
+        rospy.init_node("obstacle_avoidance", anonymous=False)
 
         self._distanceLaser = rospy.get_param("~distance_laser")
         self._speedFactor = rospy.get_param("~speed_factor")
