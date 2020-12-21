@@ -65,7 +65,7 @@ class GoPiGo3:
             return -1
 
     def __wrapAngle(self, angle):
-
+        angle-=90
         if 0 <= angle <= 180:
             return angle
         else:

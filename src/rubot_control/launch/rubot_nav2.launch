@@ -31,8 +31,8 @@
     <arg name="distance_laser" default="0.5" />
     <arg name="speed_factor" default="0.1" />
     <arg name="forward_speed" default="2" />
-    <arg name="backward_speed" default="-1" />
-    <arg name="rotation_speed" default="-5" />
+    <arg name="backward_speed" default="-2" />
+    <arg name="rotation_speed" default="10" />
   <node name="rubot_nav" pkg="rubot_control" type="rubot_autonomous_navigation2.py" output="screen" >
         <param name="distance_laser" value="$(arg distance_laser)"/>
         <param name="speed_factor" value="$(arg speed_factor)"/>
