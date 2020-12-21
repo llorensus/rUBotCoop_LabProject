@@ -9,7 +9,6 @@ def odom_callback(data):
     rospy.loginfo("Robot Odometry x= %f\n",data_odom)
 
 def move_rubot(lin_vel,ang_vel):
-    rospy.init_node('rubot_control', anonymous=False)
     pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
     rospy.Subscriber('/odom',Odometry, odom_callback)
     rate = rospy.Rate(10) # 10hz
@@ -27,8 +26,9 @@ def move_rubot(lin_vel,ang_vel):
 
 if __name__ == '__main__':
     try:
-        v= rospy.get_param("v")
-        w= rospy.get_param("w")
+        rospy.init_node('rubot_control', anonymous=False) # init node has to be made before param.get
+        v= rospy.get_param("~v") # ~ because param is inside node in launchfile 
+        w= rospy.get_param("~w") # this is important to distinguish the different robots
         move_rubot(v,w)
     except rospy.ROSInterruptException:
         pass
