@@ -13,6 +13,6 @@
             
     <!-- Spawn gopigoMinimal robot into Gazebo -->
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
-        args="-file $(find gazebo_control)/urdf/gopigo3.gazebo -urdf -model gopigo3" />
+        args="-file $(find gopigo3_description)/urdf/gopigo3.gazebo -urdf -model gopigo3" />
 
 </launch>

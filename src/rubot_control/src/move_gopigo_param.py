@@ -27,8 +27,8 @@ def move_rubot(lin_vel,ang_vel):
 
 if __name__ == '__main__':
     try:
-        v= rospy.get_param('v')
-        w= rospy.get_param('w')
+        v= rospy.get_param("v")
+        w= rospy.get_param("w")
         move_rubot(v,w)
     except rospy.ROSInterruptException:
         pass
