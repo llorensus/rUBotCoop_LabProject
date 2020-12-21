@@ -139,6 +139,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/mpuig/rUBotCoop_LabProject/build/teleop_tools/teleop_tools_msgs/cmake_install.cmake")
   include("/home/mpuig/rUBotCoop_LabProject/build/gazebo_control/cmake_install.cmake")
   include("/home/mpuig/rUBotCoop_LabProject/build/rubot_control/cmake_install.cmake")
+  include("/home/mpuig/rUBotCoop_LabProject/build/virtual_slam/cmake_install.cmake")
 
 endif()
 

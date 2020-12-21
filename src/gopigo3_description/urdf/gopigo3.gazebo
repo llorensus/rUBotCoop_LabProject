@@ -183,7 +183,7 @@
 <!-- 2D Camera as a mesh of actual PiCamera -->
   <link name="camera">
     <visual>
-      <origin xyz="0.125 0 0.025" rpy="0 1.570795 0" />
+      <origin xyz="0 0 0.025" rpy="0 1.570795 0" />
       <geometry>
         <mesh filename="package://gopigo3_description/meshes/piCamera.stl" scale="0.0025 0.0025 0.0025"/>
       </geometry>
@@ -191,14 +191,14 @@
     </visual>
     
     <collision>
-      <origin xyz="0.1375 0 0.025" rpy="0 -1.570795 0" />
+      <origin xyz="0.015 0 0.025" rpy="0 -1.570795 0" />
       <geometry>
         <box size="0.075 0.075 0.025"/>
       </geometry>
     </collision>
 
     <inertial>
-      <origin xyz="0.1375 0 0.025" rpy="0 -1.570795 0" />
+      <origin xyz="0.015 0 0.025" rpy="0 -1.570795 0" />
       <mass value="1e-3" />
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
@@ -206,7 +206,7 @@
 <!-- 2D Camera JOINT base_link -->
   <joint name="joint_camera" type="fixed">
     <axis xyz="0 0 1" />
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0.125 0 0" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera"/>
   </joint>
@@ -225,7 +225,7 @@
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_scan"/>
-    <origin xyz="0.01 0.05 0.125" rpy="0 0 -1.6"/>
+    <origin xyz="0 0 0.125" rpy="0 0 3.14"/>
   </joint>
 <!-- base_scan_solid JOINT base_link -->
   <joint name="scan_solid_joint" type="fixed">
@@ -238,7 +238,7 @@
     <visual name="sensor_body">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gopigo3_description/meshes/X4.stl" scale="0.0015 0.0015 0.0015"/> 
+        <mesh filename="package://gopigo3_description/meshes/X4.stl" scale="0.002 0.002 0.002"/> 
       </geometry>
       <material name="yellow"/>
     </visual>
@@ -373,7 +373,7 @@
 <!-- Laser Distance Sensor YDLIDAR X4 controller-->
   <gazebo reference="base_scan">
     <sensor type="ray" name="lds_lfcd_sensor">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0 -1.57 0 0</pose>
       <visualize>false</visualize>
       <update_rate>5</update_rate>
       <ray>
