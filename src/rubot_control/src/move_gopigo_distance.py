@@ -12,7 +12,6 @@ def odom_callback(data):
 	
 def move_rubot(lin_vel,ang_vel,distance):
     global robot_x
-    rospy.init_node('rubot_control', anonymous=False)
     pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
     rospy.Subscriber('/odom',Odometry, odom_callback)
     rate = rospy.Rate(10) # 10hz
@@ -25,7 +24,7 @@ def move_rubot(lin_vel,ang_vel,distance):
         vel.angular.y = 0
         vel.angular.z = ang_vel
 
-        #rospy.loginfo("Linear Vel = %f: Angular Vel = %f",lin_vel,ang_vel)
+        rospy.loginfo("Linear Vel = %f: Angular Vel = %f",lin_vel,ang_vel)
 
 	if(robot_x >= distance):
 		rospy.loginfo("Robot Reached destination")
@@ -41,9 +40,10 @@ def move_rubot(lin_vel,ang_vel,distance):
 if __name__ == '__main__':
     try:
         robot_x = 0
-        v= rospy.get_param('v')
-        w= rospy.get_param('w')
-        d= rospy.get_param('d')
+        rospy.init_node('rubot_control', anonymous=False)
+        v= rospy.get_param('~v')
+        w= rospy.get_param('~w')
+        d= rospy.get_param('~d')
         move_rubot(v,w,d)
     except rospy.ROSInterruptException:
         pass

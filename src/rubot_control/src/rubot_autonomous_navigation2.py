@@ -34,8 +34,7 @@ class GoPiGo3:
     def callbackLaser(self, scan):
 
         closestDistance, elementIndex = min(
-            (val, idx) for (idx, val) in enumerate(scan.ranges)
-            if scan.range_min < val < scan.range_max
+            (val, idx) for (idx, val) in enumerate(scan.ranges) if scan.range_min < val < scan.range_max
         )
 
         angleClosestDistance = self.__wrapAngle(elementIndex / 2)
@@ -49,8 +48,7 @@ class GoPiGo3:
             self._msg.angular.z = -self.__sign(
                 angleClosestDistance) * self._rotationSpeed * self._speedFactor
 
-            rospy.logwarn(
-                "Within laser distance threshold. Rotating the robot (z=%4.1f)...", self._msg.angular.z)
+            rospy.logwarn("Within laser distance threshold. Rotating the robot (z=%4.1f)...", self._msg.angular.z)
 
         else:
 
@@ -65,7 +63,6 @@ class GoPiGo3:
             return -1
 
     def __wrapAngle(self, angle):
-        angle-=90
         if 0 <= angle <= 180:
             return angle
         else:
